@@ -1,29 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Jumping Sparrow</title>
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Jumping Sparrow Game</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div id="score">Score: 0</div>
+  <!-- Your game elements, canvas, etc. -->
   <div id="startScreen">
     <h1>Jumping Sparrow</h1>
-    <p>Tap to flap and avoid the trees!</p>
     <button onclick="startGame()">Start Game</button>
   </div>
+
   <div id="gameOverScreen" style="display: none;">
-    <h2>Game Over</h2>
+    <h1>Game Over</h1>
     <p id="finalScore"></p>
-    <button onclick="restartGame()">Try Again</button>
+    <button onclick="restartGame()">Restart Game</button>
   </div>
-  <canvas id="gameCanvas" width="400" height="600"></canvas>
-  <audio id="flapSound" src="flap.mp3"></audio>
-  <audio id="gameOverSound" src="gameover.mp3"></audio>
-  <script src="script.js"></script>
+
+  <canvas id="gameCanvas" width="800" height="600"></canvas>
+  <p id="score">Score: 0</p>
+
+  <!-- Add the sound files just before the closing body tag -->
   <audio id="flapSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
   <audio id="gameOverSound" src="https://www.soundjay.com/button/beep-09.wav" preload="auto"></audio>
 
+  <script src="script.js"></script>
 </body>
 </html>
