@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jumping Sparrow</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="score">Score: 0</div>
+  <div id="startScreen">
+    <h1>Jumping Sparrow</h1>
+    <p>Tap to flap and avoid the trees!</p>
+    <button onclick="startGame()">Start Game</button>
+  </div>
+  <div id="gameOverScreen" style="display: none;">
+    <h2>Game Over</h2>
+    <p id="finalScore"></p>
+    <button onclick="restartGame()">Try Again</button>
+  </div>
+  <canvas id="gameCanvas" width="400" height="600"></canvas>
+  <audio id="flapSound" src="flap.mp3"></audio>
+  <audio id="gameOverSound" src="gameover.mp3"></audio>
+  <script src="script.js"></script>
+</body>
+</html>
