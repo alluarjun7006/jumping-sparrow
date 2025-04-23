@@ -20,9 +20,12 @@ const bird = {
 
 bird.image.src = 'https://i.ibb.co/wBhXTz8/bird.png';  // Bird sprite image
 
-const obstacles = [];
-let frame = 0;
+// Scroll background variables
+let backgroundX = 0;  // Starting position for background
+const backgroundImage = new Image();
+backgroundImage.src = 'https://i.ibb.co/RHgJMBg/forest-bg.png';  // Forest background image
 
+// Handle bird flap
 function flap() {
   if (!gameRunning) return;
   bird.velocity = bird.jumpStrength;
@@ -33,10 +36,12 @@ function flap() {
 document.addEventListener('keydown', flap);
 document.addEventListener('touchstart', flap);
 
+// Draw the bird
 function drawBird() {
   ctx.drawImage(bird.image, bird.x, bird.y, bird.width, bird.height);
 }
 
+// Draw the obstacles
 function drawObstacles() {
   for (let obs of obstacles) {
     ctx.fillStyle = '#556b2f';
@@ -45,6 +50,7 @@ function drawObstacles() {
   }
 }
 
+// Create obstacles
 function updateObstacles() {
   if (frame % 100 === 0) {
     const height = Math.floor(Math.random() * 200) + 50;
@@ -77,6 +83,22 @@ function updateObstacles() {
   }
 }
 
+// Draw the scrolling background
+function drawBackground() {
+  const bgWidth = canvas.width;
+  backgroundX -= gameSpeed;
+  
+  // When background reaches the left side, reset it
+  if (backgroundX <= -bgWidth) {
+    backgroundX = 0;
+  }
+
+  // Draw the background at the current position
+  ctx.drawImage(backgroundImage, backgroundX, 0, bgWidth, canvas.height);
+  ctx.drawImage(backgroundImage, backgroundX + bgWidth, 0, bgWidth, canvas.height);
+}
+
+// Main update function
 function update() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   bird.velocity += bird.gravity;
@@ -86,6 +108,9 @@ function update() {
     endGame();
   }
 
+  // Draw the scrolling background
+  drawBackground();
+  
   drawBird();
   drawObstacles();
   updateObstacles();
@@ -93,6 +118,7 @@ function update() {
   animationId = requestAnimationFrame(update);
 }
 
+// Start the game
 function startGame() {
   document.getElementById('startScreen').style.display = 'none';
   gameRunning = true;
@@ -106,6 +132,7 @@ function startGame() {
   update();
 }
 
+// End the game
 function endGame() {
   cancelAnimationFrame(animationId);
   gameRunning = false;
@@ -114,6 +141,7 @@ function endGame() {
   document.getElementById('gameOverScreen').style.display = 'flex';
 }
 
+// Restart the game
 function restartGame() {
   document.getElementById('gameOverScreen').style.display = 'none';
   startGame();
