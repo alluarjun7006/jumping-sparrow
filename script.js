@@ -100,36 +100,35 @@ function drawBackground() {
 
 // Main update function
 function update() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  bird.velocity += bird.gravity;
-  bird.y += bird.velocity;
+  ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear the canvas
+  bird.velocity += bird.gravity; // Apply gravity
+  bird.y += bird.velocity; // Update bird position
 
   if (bird.y < 0 || bird.y + bird.height > canvas.height) {
-    endGame();
+    endGame(); // End the game if bird hits top or bottom
   }
 
-  // Draw the scrolling background
+  // Draw the background, bird, obstacles, and update game logic
   drawBackground();
-  
   drawBird();
   drawObstacles();
   updateObstacles();
-  frame++;
-  animationId = requestAnimationFrame(update);
+  frame++; // Increment frame count
+  animationId = requestAnimationFrame(update); // Request next frame
 }
 
 // Start the game
 function startGame() {
-  document.getElementById('startScreen').style.display = 'none';
-  gameRunning = true;
-  score = 0;
-  gameSpeed = 2;
-  bird.y = 200;
-  bird.velocity = 0;
-  obstacles.length = 0;
-  frame = 0;
-  document.getElementById('score').textContent = 'Score: 0';
-  update();
+  document.getElementById('startScreen').style.display = 'none'; // Hide the start screen
+  gameRunning = true; // Set the game to running state
+  score = 0; // Reset score
+  gameSpeed = 2; // Reset game speed
+  bird.y = 200; // Reset bird position
+  bird.velocity = 0; // Reset bird's velocity
+  obstacles.length = 0; // Clear obstacles
+  frame = 0; // Reset frame count
+  document.getElementById('score').textContent = 'Score: 0'; // Reset score display
+  update(); // Call the update function to start the game loop
 }
 
 // End the game
