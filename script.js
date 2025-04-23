@@ -22,10 +22,10 @@ const bird = {
   image: new Image(),
 };
 
-bird.image.src = 'https://i.ibb.co/DYQ2ZPf/bird.png';
+bird.image.src = 'images/bird.jpg';  // Updated image path
 
 const backgroundImage = new Image();
-backgroundImage.src = 'https://i.ibb.co/CVvCcD0/forest-bg.jpg';
+backgroundImage.src = 'images/forest-bg.jpg';  // Updated image path
 let backgroundX = 0;
 
 document.addEventListener('keydown', flap);
