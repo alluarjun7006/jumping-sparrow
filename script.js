@@ -10,12 +10,15 @@ let animationId;
 const bird = {
   x: 80,
   y: 200,
-  width: 30,
-  height: 30,
+  width: 40,
+  height: 40,
   velocity: 0,
   gravity: 0.6,
-  jumpStrength: -10
+  jumpStrength: -10,
+  image: new Image(),
 };
+
+bird.image.src = 'https://i.ibb.co/wBhXTz8/bird.png';  // Bird sprite image
 
 const obstacles = [];
 let frame = 0;
@@ -31,8 +34,7 @@ document.addEventListener('keydown', flap);
 document.addEventListener('touchstart', flap);
 
 function drawBird() {
-  ctx.fillStyle = '#ffcc00';
-  ctx.fillRect(bird.x, bird.y, bird.width, bird.height);
+  ctx.drawImage(bird.image, bird.x, bird.y, bird.width, bird.height);
 }
 
 function drawObstacles() {
