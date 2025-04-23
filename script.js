@@ -119,6 +119,7 @@ function update() {
 
 // Start the game
 function startGame() {
+  console.log("Starting the game...");
   document.getElementById('startScreen').style.display = 'none'; // Hide the start screen
   gameRunning = true; // Set the game to running state
   score = 0; // Reset score
@@ -142,6 +143,11 @@ function endGame() {
 
 // Restart the game
 function restartGame() {
+  console.log("Restarting the game...");
   document.getElementById('gameOverScreen').style.display = 'none';
   startGame();
 }
+
+// Initialize obstacles array
+let obstacles = [];
+let frame = 0;
