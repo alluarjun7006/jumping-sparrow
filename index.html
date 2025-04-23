@@ -1,32 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Jumping Sparrow Game</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jumping Sparrow</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <!-- Start Screen -->
   <div id="startScreen">
     <h1>Jumping Sparrow</h1>
     <button onclick="startGame()">Start Game</button>
   </div>
 
-  <!-- Game Over Screen -->
-  <div id="gameOverScreen" style="display: none;">
-    <h1>Game Over</h1>
-    <p id="finalScore"></p>
-    <button onclick="restartGame()">Restart Game</button>
+  <div id="gameOverScreen">
+    <h2>Game Over</h2>
+    <p id="finalScore">Your score: 0</p>
+    <button onclick="restartGame()">Play Again</button>
   </div>
 
-  <!-- Canvas for the game -->
-  <canvas id="gameCanvas" width="800" height="600"></canvas>
-  <p id="score">Score: 0</p>
+  <div id="score">Score: 0</div>
 
-  <!-- Add the sound files just before the closing body tag -->
-  <audio id="flapSound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
-  <audio id="gameOverSound" src="https://www.soundjay.com/button/beep-09.wav" preload="auto"></audio>
+  <canvas id="gameCanvas" width="360" height="640"></canvas>
+
+  <!-- Audio -->
+  <audio id="flapSound" src="https://actions.google.com/sounds/v1/cartoon/wood_plank_flicks.ogg" preload="auto"></audio>
+  <audio id="gameOverSound" src="https://actions.google.com/sounds/v1/cartoon/clang_and_wobble.ogg" preload="auto"></audio>
 
   <script src="script.js"></script>
 </body>
