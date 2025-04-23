@@ -1,7 +1,7 @@
 const canvas = document.getElementById('gameCanvas');
 const ctx = canvas.getContext('2d');
-const flapSound = document.getElementById('flapSound');
-const gameOverSound = document.getElementById('gameOverSound');
+const flapSound = document.getElementById('flapSound');  // Flap sound
+const gameOverSound = document.getElementById('gameOverSound');  // Game Over sound
 let score = 0;
 let gameSpeed = 2;
 let gameRunning = false;
@@ -29,7 +29,7 @@ backgroundImage.src = 'https://i.ibb.co/RHgJMBg/forest-bg.png';  // Forest backg
 function flap() {
   if (!gameRunning) return;
   bird.velocity = bird.jumpStrength;
-  flapSound.currentTime = 0;
+  flapSound.currentTime = 0;  // Reset sound to start from the beginning
   flapSound.play();
 }
 
@@ -136,7 +136,7 @@ function startGame() {
 function endGame() {
   cancelAnimationFrame(animationId);
   gameRunning = false;
-  gameOverSound.play();
+  gameOverSound.play();  // Play game over sound
   document.getElementById('finalScore').textContent = 'Your score: ' + score;
   document.getElementById('gameOverScreen').style.display = 'flex';
 }
