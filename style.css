@@ -36,6 +36,6 @@ body {
 canvas {
   display: block;
   margin: 0 auto;
-  background: url('https://i.ibb.co/CVvCcD0/forest-bg.jpg') repeat-x;
+  background: url('images/forest-bg.jpg') repeat-x;
   background-size: cover;
 }
